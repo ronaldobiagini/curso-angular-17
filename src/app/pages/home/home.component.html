@@ -1,0 +1,11 @@
+
+<app-home-increment *ngIf="exibirHome" [hidden]="hiddenHome"></app-home-increment>
+
+<div>
+  <button class="btn btn-success m-1" (click)="criar()">Criar</button>
+  <button class="btn btn-danger" (click)="destruir()">Destruir</button>
+</div>
+<div>
+  <button class="btn btn-success m-1" (click)="mostrar()">Mostrar</button>
+  <button class="btn btn-danger" (click)="esconder()">Esconder</button>
+</div>
