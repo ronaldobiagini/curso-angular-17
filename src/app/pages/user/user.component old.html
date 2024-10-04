@@ -1,0 +1,7 @@
+<ul class="list-unstyled">
+  <li *ngFor="let user of users">
+    <a routerLink="/user/{{ user }}" class="btn btn-link" >{{ user }}</a>
+    <a [routerLink]="'/user/' + user" class="btn btn-primary" >{{ user }}</a>
+    <a [routerLink]="'/user/' + user" [queryParams]="{username: user}" class="btn btn-secondary" >{{ user }}</a>
+  </li>
+</ul>

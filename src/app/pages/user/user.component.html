@@ -1,5 +1,46 @@
-<p>ronaldo</p>
-<ul>
-  <li *ngFor="let user of users">{{ user }}</li>
-</ul>
-<div><span *ngFor="let user of users">{{ user }} - </span> </div>
+<form>
+  <div class="row mb-3">
+    <div class="form-group col-md-6">
+      <label for="nome">Nome:</label>
+      <input
+        type="text"
+        name="nome"
+        id="nome"
+        class="form-control"
+        formControlName="nome"
+      />
+    </div>
+    <div class="form-group col-md-2">
+      <label for="idade">Idade:</label>
+      <input
+        type="number"
+        min="0"
+        max="130"
+        name="idade"
+        id="idade"
+        class="form-control"
+        formControlName="idade"
+      />
+    </div>
+  </div>
+  <button class="btn btn-outline-primary mb-3">Incluir</button>
+</form>
+
+<div class="row">
+  <app-user-card
+    *ngFor="let user of users"
+    [cardusername]="user"
+    (userInfoEmiter)="userInfoSelecionado($event)"
+    class="col-md"
+  ></app-user-card>
+</div>
+<div class="col-md border rounded p-3 mt-3 bg-white">
+  <div *ngIf="userSelected">
+    <h2>Usuário selecionado</h2>
+    <p>Nome: {{ userSelected.nome }}</p>
+    <p>Idade: {{ userSelected.idade }}</p>
+  </div>
+  <div *ngIf="!userSelected">
+    <h2>Selecione um usuário</h2>
+  </div>
+</div>

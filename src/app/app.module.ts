@@ -10,6 +10,8 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { BaseUIComponent } from './_components/base-ui/base-ui.component';
 import { UserComponent } from './pages/user/user.component';
 import { HomeIncrementComponent } from './_components/home-increment/home-increment.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserCardComponent } from './_components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HomeIncrementComponent } from './_components/home-increment/home-increm
     FooterComponent,
     BaseUIComponent,
     UserComponent,
-    HomeIncrementComponent
+    HomeIncrementComponent,
+    UserDetailsComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
