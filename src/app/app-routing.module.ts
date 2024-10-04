@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ReactiveFormsModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

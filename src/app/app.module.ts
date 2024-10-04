@@ -12,6 +12,7 @@ import { UserComponent } from './pages/user/user.component';
 import { HomeIncrementComponent } from './_components/home-increment/home-increment.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserCardComponent } from './_components/user-card/user-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,10 @@ import { UserCardComponent } from './_components/user-card/user-card.component';
     UserComponent,
     HomeIncrementComponent,
     UserDetailsComponent,
-    UserCardComponent
+    UserCardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

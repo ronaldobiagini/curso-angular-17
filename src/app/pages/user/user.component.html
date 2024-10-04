@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="userForm">
   <div class="row mb-3">
     <div class="form-group col-md-6">
       <label for="nome">Nome:</label>
@@ -7,23 +7,63 @@
         name="nome"
         id="nome"
         class="form-control"
+        [class.is-invalid]="
+          userForm.get('nome')?.errors && userForm.get('nome')?.touched
+        "
         formControlName="nome"
       />
+      <div
+        *ngIf="userForm.get('nome')?.hasError('required')"
+        class="invalid-feedback"
+      >
+        O nome deve ser preenchido
+      </div>
+      <div
+        *ngIf="userForm.get('nome')?.hasError('maxlength')"
+        class="invalid-feedback"
+      >
+        O nome não pode ultrapassar 120 caracteres
+      </div>
     </div>
     <div class="form-group col-md-2">
       <label for="idade">Idade:</label>
       <input
         type="number"
-        min="0"
+        min="12"
         max="130"
         name="idade"
         id="idade"
         class="form-control"
+        [class.is-invalid]="
+          userForm.get('idade')?.errors && userForm.get('idade')?.touched
+        "
         formControlName="idade"
       />
+
+      <div
+        *ngIf="userForm.get('idade')?.hasError('required')"
+        class="invalid-feedback"
+      >
+        A idade deve ser preenchida
+      </div>
+      <div
+        *ngIf="
+          userForm.get('idade')?.hasError('min') ||
+          userForm.get('idade')?.hasError('max')
+        "
+        class="invalid-feedback"
+      >
+        A idade deve ter entre 12 e 130 anos
+      </div>
     </div>
   </div>
-  <button class="btn btn-outline-primary mb-3">Incluir</button>
+  <button
+    [disabled]="!userForm.valid"
+    (click)="CriarUser()"
+    class="btn btn-outline-primary mb-3"
+  >
+    Incluir
+  </button>
 </form>
 
 <div class="row">
@@ -31,10 +71,10 @@
     *ngFor="let user of users"
     [cardusername]="user"
     (userInfoEmiter)="userInfoSelecionado($event)"
-    class="col-md"
+    class="col-md-3 mb-3"
   ></app-user-card>
 </div>
-<div class="col-md border rounded p-3 mt-3 bg-white">
+<div class="col-md border rounded p-3 bg-white">
   <div *ngIf="userSelected">
     <h2>Usuário selecionado</h2>
     <p>Nome: {{ userSelected.nome }}</p>
