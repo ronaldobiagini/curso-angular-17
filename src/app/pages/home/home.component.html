@@ -1,11 +1,23 @@
+<app-home-increment
+  *ngIf="exibirHome"
+  [hidden]="hiddenHome"
+></app-home-increment>
 
-<app-home-increment *ngIf="exibirHome" [hidden]="hiddenHome"></app-home-increment>
-
-<div>
-  <button class="btn btn-success m-1" (click)="criar()">Criar</button>
-  <button class="btn btn-danger" (click)="destruir()">Destruir</button>
+<div class="bg-light rounded p-2 mt-2">
+  <div>
+    <button class="btn btn-success m-1" (click)="criar()">Criar</button>
+    <button class="btn btn-danger" (click)="destruir()">Destruir</button>
+  </div>
+  <div>
+    <button class="btn btn-success m-1" (click)="mostrar()">Mostrar</button>
+    <button class="btn btn-danger" (click)="esconder()">Esconder</button>
+  </div>
 </div>
-<div>
-  <button class="btn btn-success m-1" (click)="mostrar()">Mostrar</button>
-  <button class="btn btn-danger" (click)="esconder()">Esconder</button>
+
+<div class="col-md border rounded p-3 bg-white">
+  <div *ngIf="user">
+    <h2>Usuário selecionado</h2>
+    <p>Nome: {{ user.nome }}</p>
+    <p>Idade: {{ user.idade }}</p>
+  </div>
 </div>
