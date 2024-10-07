@@ -12,7 +12,12 @@ import { UserComponent } from './pages/user/user.component';
 import { HomeIncrementComponent } from './_components/home-increment/home-increment.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserCardComponent } from './_components/user-card/user-card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiComponent } from './pages/api/api.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -26,8 +31,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeIncrementComponent,
     UserDetailsComponent,
     UserCardComponent,
+    ApiComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    ToastrModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
