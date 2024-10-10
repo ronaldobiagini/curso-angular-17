@@ -16,21 +16,23 @@
   </div>
 </div>
 
-<div class="col-md-4" *ngIf="user">
-  <div class="card">
-    <img [src]="user.avatar_url" alt="" class="card-img-top" />
-    <div class="card-body text-center">
-      <h5 class="card-title">{{ user.name }}</h5>
-      <div class="card-text">{{ "@" + user.login }}</div>
-      <div class="row">
-        <div class="card-text col-sm-6">
-          <b>Seguindo:</b><br />{{ user.following }}
+<div class="row">
+  <div class="col-md-4" *ngFor="let user of users">
+    <div class="card">
+      <img [src]="user.avatar_url" alt="" class="card-img-top" />
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ user.name }}</h5>
+        <div class="card-text">{{ "@" + user.login }}</div>
+        <div class="row">
+          <div class="card-text col-sm-6">
+            <b>Seguindo:</b><br />{{ user.following }}
+          </div>
+          <div class="card-text col-sm-6">
+            <b>Seguidores:</b><br />{{ user.followers }}
+          </div>
         </div>
-        <div class="card-text col-sm-6">
-          <b>Seguidores:</b><br />{{ user.followers }}
-        </div>
+        <a [href]="user.html_url" class="btn btn-primary">Visitar perfil</a>
       </div>
-      <a [href]="user.html_url" class="btn btn-primary">Visitar perfil</a>
     </div>
   </div>
 </div>
